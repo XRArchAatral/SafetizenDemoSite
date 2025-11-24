@@ -322,6 +322,23 @@ const MODULES = [
 ];
 
 const CATEGORIES = ["All", "General Safety", "Killer Risks", "EOT Crane Simulator"];
+const DEFAULT_YOUTUBE_EMBED = "https://www.youtube.com/embed/U1xeDRqj2oA";
+
+function getYouTubeEmbedUrl(source) {
+  if (!source) return DEFAULT_YOUTUBE_EMBED;
+  if (source.includes("youtube.com/embed/")) return source;
+  if (source.includes("youtube.com/watch")) {
+    const query = source.split("?")[1] || "";
+    const params = new URLSearchParams(query);
+    const id = params.get("v");
+    if (id) return `https://www.youtube.com/embed/${id}`;
+  }
+  if (source.includes("youtu.be/")) {
+    const id = source.split("youtu.be/")[1]?.split("?")[0];
+    if (id) return `https://www.youtube.com/embed/${id}`;
+  }
+  return DEFAULT_YOUTUBE_EMBED;
+}
 
 function ModeBadge({ modes }) {
   return (
@@ -334,6 +351,7 @@ function ModeBadge({ modes }) {
 }
 
 function ModuleCard({ m, onDetails }) {
+  const embedUrl = getYouTubeEmbedUrl(m.video);
   return (
     <div className="bg-white/80 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-lg p-4 shadow-sm hover:shadow-md transition">
       <div className="flex items-start justify-between gap-4">
@@ -344,27 +362,25 @@ function ModuleCard({ m, onDetails }) {
         <div className="text-sm text-slate-400">{m.runtime}</div>
       </div>
 
+      <div className="mt-3">
+        <div className="relative w-full pt-[56.25%] rounded-lg overflow-hidden bg-black/10">
+          <iframe
+            src={embedUrl}
+            title={`${m.name} video`}
+            className="absolute inset-0 w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </div>
+
       <div className="mt-3 flex items-center justify-between">
         <ModeBadge modes={m.modes} />
         <div className="text-xs text-slate-500">{m.languages.join(", ")}</div>
       </div>
 
       <div className="mt-3 flex items-center gap-2">
-        {m.video ? (
-          <a
-            href={m.video}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-600 text-white rounded text-sm"
-          >
-            ▶ Watch
-          </a>
-        ) : (
-          <button className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-200 text-slate-700 rounded text-sm" disabled>
-            No Preview
-          </button>
-        )}
-
+        {/* Watch button intentionally hidden for now */}
         <button onClick={() => onDetails(m)} className="ml-auto inline-flex items-center gap-2 px-3 py-1.5 border rounded text-sm">Details</button>
       </div>
     </div>
