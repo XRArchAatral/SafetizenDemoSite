@@ -324,6 +324,7 @@ const MODULES = [
 const CATEGORIES = ["All", "General Safety", "Killer Risks", "EOT Crane Simulator"];
 const DEFAULT_YOUTUBE_EMBED = "https://www.youtube.com/embed/U1xeDRqj2oA";
 const SHOW_WATCH_BUTTON = false;
+const LOGO_URL = "https://aatral.io/assets/images/home/logo_full.svg";
 
 function getYouTubeEmbedUrl(source) {
   if (!source) return DEFAULT_YOUTUBE_EMBED;
@@ -439,9 +440,14 @@ export default function SafetizenLanding() {
       {/* NAV */}
       <header className="max-w-7xl mx-auto p-6 flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold">A</div>
+          <img
+            src={LOGO_URL}
+            alt="Aatral logo"
+            className="w-28 h-12 object-contain"
+            loading="lazy"
+          />
           <div>
-            <div className="font-semibold">Aatral Safetizen</div>
+            <div className="font-semibold">Safetizen</div>
             <div className="text-xs text-slate-500">VR Safety Training Library</div>
           </div>
         </div>
