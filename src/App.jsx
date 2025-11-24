@@ -805,7 +805,12 @@ export default function SafetizenLanding() {
               {selected.video ? (
                 <a href={selected.video} target="_blank" rel="noreferrer" className="px-3 py-2 bg-indigo-600 text-white rounded">Watch Video</a>
               ) : null}
-              <button onClick={() => setSelected(null)} className="px-4 py-2 bg-slate-200 rounded">Close</button>
+              <button
+                onClick={() => setSelected(null)}
+                className="px-4 py-2 rounded border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 dark:border-white/30 dark:text-white dark:bg-transparent dark:hover:bg-white/10 transition"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
