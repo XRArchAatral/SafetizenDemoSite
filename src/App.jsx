@@ -323,6 +323,7 @@ const MODULES = [
 
 const CATEGORIES = ["All", "General Safety", "Killer Risks", "EOT Crane Simulator"];
 const DEFAULT_YOUTUBE_EMBED = "https://www.youtube.com/embed/U1xeDRqj2oA";
+const SHOW_WATCH_BUTTON = false;
 
 function getYouTubeEmbedUrl(source) {
   if (!source) return DEFAULT_YOUTUBE_EMBED;
@@ -380,21 +381,24 @@ function ModuleCard({ m, onDetails }) {
       </div>
 
       <div className="mt-3 flex items-center gap-2">
-        {m.video ? (
-          <a
-            href={m.video}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-600 text-white rounded text-sm"
-          >
-            ▶ Watch
-          </a>
-        ) : (
-          <button className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-200 text-slate-700 rounded text-sm" disabled>
-            No Preview
-          </button>
+        {SHOW_WATCH_BUTTON && (
+          <>
+            {m.video ? (
+              <a
+                href={m.video}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-600 text-white rounded text-sm"
+              >
+                ▶ Watch
+              </a>
+            ) : (
+              <button className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-200 text-slate-700 rounded text-sm" disabled>
+                No Preview
+              </button>
+            )}
+          </>
         )}
-
         <button onClick={() => onDetails(m)} className="ml-auto inline-flex items-center gap-2 px-3 py-1.5 border rounded text-sm">Details</button>
       </div>
     </div>
