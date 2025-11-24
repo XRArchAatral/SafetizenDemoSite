@@ -579,8 +579,14 @@ export default function SafetizenLanding() {
 
           <div>
             <div className="font-semibold">Contact</div>
-            <div className="text-sm text-slate-500 mt-2">sales@aatral.io</div>
-            <div className="text-sm text-slate-500">+91 98765 43210</div>
+            <div className="text-sm text-slate-500 mt-2">Head Office</div>
+            <div className="text-sm text-slate-500">Padma Vilas, Door No. 3/233, Survey No. 34/1b</div>
+            <div className="text-sm text-slate-500">Manapakkam Main Road, Manapakkam</div>
+            <div className="text-sm text-slate-500">Chennai - 600125, Tamilnadu, India.</div>
+            <div className="text-sm text-slate-500 mt-3">Landline: 044-43589770</div>
+            <div className="text-sm text-slate-500">Mob: (+91)7338945666 / 9830714314 / 9600067005</div>
+            <div className="text-sm text-slate-500">US number: +1(669) 249-5831</div>
+            <div className="text-sm text-slate-500 mt-2">Mail: sales@aatral.io</div>
           </div>
 
           <div>
@@ -593,7 +599,13 @@ export default function SafetizenLanding() {
           </div>
         </div>
 
-        <div className="mt-6 text-sm text-slate-500 text-center">© {new Date().getFullYear()} Aatral. All rights reserved.</div>
+        <div className="mt-6 text-sm text-slate-500 text-center">
+          © {new Date().getFullYear()}{" "}
+          <a href="https://aatral.io/" target="_blank" rel="noreferrer" className="underline text-slate-600 dark:text-slate-300">
+            Aatral
+          </a>
+          . All rights reserved.
+        </div>
       </footer>
 
       {/* DETAILS MODAL */}
