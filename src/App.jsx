@@ -364,6 +364,12 @@ const EOT_CATEGORY = "EOT Crane Simulator";
 const GENERAL_MODULES = MODULES.filter((m) => m.category !== EOT_CATEGORY);
 const EOT_MODULES = MODULES.filter((m) => m.category === EOT_CATEGORY);
 const CATEGORIES = ["All", "General Safety", "Killer Risks"];
+const HERO_STATS = [
+  { label: "Ready Modules", value: "21+" },
+  { label: "Learning Modes", value: "3" },
+  { label: "Languages", value: "Multi" },
+  { label: "Supported", value: "Quest 3 / 3S" }
+];
 const DEFAULT_YOUTUBE_EMBED = "https://www.youtube.com/embed/U1xeDRqj2oA";
 const SHOW_WATCH_BUTTON = false;
 const LOGO_URL = "https://aatral.io/assets/images/home/logo_full.svg";
@@ -400,10 +406,10 @@ function ModuleCard({ m, onDetails }) {
     <div className="bg-white/80 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-lg p-4 shadow-sm hover:shadow-md transition">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h3 className="text-lg font-semibold leading-tight">{m.name}</h3>
-          <p className="text-sm text-slate-500 mt-1">{m.industries.join(" • ")}</p>
+          <h3 className="text-lg font-semibold leading-tight text-slate-900 dark:text-white">{m.name}</h3>
+          <p className="text-sm text-slate-500 dark:text-slate-300 mt-1">{m.industries.join(" • ")}</p>
         </div>
-        <div className="text-sm text-slate-400">{m.runtime}</div>
+        <div className="text-sm text-slate-500 dark:text-slate-200">{m.runtime}</div>
       </div>
 
       <div className="mt-3">
@@ -420,7 +426,7 @@ function ModuleCard({ m, onDetails }) {
 
       <div className="mt-3 flex items-center justify-between">
         <ModeBadge modes={m.modes} />
-        <div className="text-xs text-slate-500">{m.languages.join(", ")}</div>
+        <div className="text-xs text-slate-500 dark:text-slate-300">{m.languages.join(", ")}</div>
       </div>
 
       <div className="mt-3 flex items-center gap-2">
@@ -436,13 +442,18 @@ function ModuleCard({ m, onDetails }) {
                 ▶ Watch
               </a>
             ) : (
-              <button className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-200 text-slate-700 rounded text-sm" disabled>
+              <button className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-200 rounded text-sm" disabled>
                 No Preview
               </button>
             )}
           </>
         )}
-        <button onClick={() => onDetails(m)} className="ml-auto inline-flex items-center gap-2 px-3 py-1.5 border rounded text-sm">Details</button>
+        <button
+          onClick={() => onDetails(m)}
+          className="ml-auto inline-flex items-center gap-2 px-3 py-1.5 border border-slate-200 dark:border-slate-600 text-sm text-slate-700 dark:text-slate-100 rounded"
+        >
+          Details
+        </button>
       </div>
     </div>
   );
@@ -532,23 +543,20 @@ export default function SafetizenLanding() {
             <a href="https://aatral.io/contact-us" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg">Request Demo</a>
           </div>
 
-           <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm text-slate-600">
-            <div className="bg-white/60 dark:bg-slate-800/60 rounded p-3 text-center shadow-sm">
-              <div className="text-2xl font-bold">21+</div>
-              <div className="text-xs">Ready Modules</div>
-            </div>
-            <div className="bg-white/60 dark:bg-slate-800/60 rounded p-3 text-center shadow-sm">
-              <div className="text-2xl font-bold">3</div>
-              <div className="text-xs">Learning Modes</div>
-            </div>
-            <div className="bg-white/60 dark:bg-slate-800/60 rounded p-3 text-center shadow-sm">
-              <div className="text-2xl font-bold">Multi</div>
-              <div className="text-xs">Languages</div>
-            </div>
-            <div className="bg-white/60 dark:bg-slate-800/60 rounded p-3 text-center shadow-sm">
-              <div className="text-2xl font-bold">Quest 3 / 3S</div>
-              <div className="text-xs">Supported</div>
-            </div>
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+            {HERO_STATS.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-xl p-4 text-center shadow-lg bg-gradient-to-br from-white via-indigo-50 to-white dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 border border-white/70 dark:border-slate-700/80"
+              >
+                <div className="text-2xl sm:text-3xl font-semibold text-indigo-600 dark:text-indigo-300 leading-tight break-words">
+                  {stat.value}
+                </div>
+                <div className="text-[12px] sm:text-sm text-slate-600 dark:text-slate-200 mt-2 leading-tight break-words">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -624,15 +632,22 @@ export default function SafetizenLanding() {
 
         <div className="mt-4">
           <div className="flex flex-wrap gap-3 items-center">
-            {CATEGORIES.map((c) => (
-              <button
-                key={c}
-                onClick={() => setActiveCategory(c)}
-                className={`px-3 py-1 rounded ${activeCategory === c ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-700'}`}
-              >
-                {c}
-              </button>
-            ))}
+            {CATEGORIES.map((c) => {
+              const isActive = activeCategory === c;
+              return (
+                <button
+                  key={c}
+                  onClick={() => setActiveCategory(c)}
+                  className={`px-3 py-1 rounded border text-sm transition ${
+                    isActive
+                      ? "bg-indigo-600 text-white border-indigo-500"
+                      : "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-700"
+                  }`}
+                >
+                  {c}
+                </button>
+              );
+            })}
           </div>
 
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
