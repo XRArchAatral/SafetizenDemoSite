@@ -800,7 +800,7 @@ export default function SafetizenLanding() {
           <div className="w-full max-w-md bg-gradient-to-br from-indigo-50 to-white dark:from-slate-800 dark:to-slate-700 rounded-xl p-6 shadow-2xl">
             <div className="aspect-video rounded-lg overflow-hidden bg-black">
               <iframe
-                src="https://www.youtube.com/embed/IKokJT_ebXc"
+                src="https://www.youtube.com/embed/rPZsNqnFfCU"
                 title="Safetizen Module Overview"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
