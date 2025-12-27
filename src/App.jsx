@@ -630,37 +630,37 @@ function LogoCarousel() {
   // Logo carousel with infinite scroll animation
   //https://codepen.io/studiojvla/pen/qVbQqW
   const logos = [
-    "/logos/lnt_construction.jpeg",
-    "/logos/amnsindia.jpeg",
-    "/logos/ashokleyland.jpeg",
-    "/logos/toyoto.jpeg",
-    "/logos/tatapower.jpeg",
-    "/logos/tataprojects.jpeg",
-    "/logos/ey.jpg",
-    "/logos/jsw.jpeg",
-    "/logos/iaf.jpeg",
-    "/logos/indianarmy.jpeg",
-    "/logos/indiannavy.jpeg",
-    "/logos/toyotoboshoku.jpg",
-    "/logos/coreehs.jpeg",
-    "/logos/forcetech.jpeg",
-    "/logos/hcc.png",
-    "/logos/itt.jpeg",
-    "/logos/jll.jpeg",
-    "/logos/kitious.jpeg",
-    "/logos/lnt-energy-hydrocarbon.jpg",
-    "/logos/lnt.jpeg",
-    "/logos/msp.jpeg",
-    "/logos/renfraenergy.jpeg",
-    "/logos/saildsp.jpeg",
-    "/logos/saintgobain.jpeg",
-    "/logos/tcs.jpg",
-    "/logos/titan.jpeg",
-    "/logos/acedesigners.jpeg",
-    "/logos/allison.jpeg",
-    "/logos/asp.jpg",
-    "/logos/tpcodl.jpeg",
-    "/logos/tpsodl.jpg"
+    `${import.meta.env.BASE_URL}logos/lnt_construction.jpeg`,
+    `${import.meta.env.BASE_URL}logos/amnsindia.jpeg`,
+    `${import.meta.env.BASE_URL}logos/ashokleyland.jpeg`,
+    `${import.meta.env.BASE_URL}logos/toyoto.jpeg`,
+    `${import.meta.env.BASE_URL}logos/tatapower.jpeg`,
+    `${import.meta.env.BASE_URL}logos/tataprojects.jpeg`,
+    `${import.meta.env.BASE_URL}logos/ey.jpg`,
+    `${import.meta.env.BASE_URL}logos/jsw.jpeg`,
+    `${import.meta.env.BASE_URL}logos/iaf.jpeg`,
+    `${import.meta.env.BASE_URL}logos/indianarmy.jpeg`,
+    `${import.meta.env.BASE_URL}logos/indiannavy.jpeg`,
+    `${import.meta.env.BASE_URL}logos/toyotoboshoku.jpg`,
+    `${import.meta.env.BASE_URL}logos/coreehs.jpeg`,
+    `${import.meta.env.BASE_URL}logos/forcetech.jpeg`,
+    `${import.meta.env.BASE_URL}logos/hcc.png`,
+    `${import.meta.env.BASE_URL}logos/itt.jpeg`,
+    `${import.meta.env.BASE_URL}logos/jll.jpeg`,
+    `${import.meta.env.BASE_URL}logos/kitious.jpeg`,
+    `${import.meta.env.BASE_URL}logos/lnt-energy-hydrocarbon.jpg`,
+    `${import.meta.env.BASE_URL}logos/lnt.jpeg`,
+    `${import.meta.env.BASE_URL}logos/msp.jpeg`,
+    `${import.meta.env.BASE_URL}logos/renfraenergy.jpeg`,
+    `${import.meta.env.BASE_URL}logos/saildsp.jpeg`,
+    `${import.meta.env.BASE_URL}logos/saintgobain.jpeg`,
+    `${import.meta.env.BASE_URL}logos/tcs.jpg`,
+    `${import.meta.env.BASE_URL}logos/titan.jpeg`,
+    `${import.meta.env.BASE_URL}logos/acedesigners.jpeg`,
+    `${import.meta.env.BASE_URL}logos/allison.jpeg`,
+    `${import.meta.env.BASE_URL}logos/asp.jpg`,
+    `${import.meta.env.BASE_URL}logos/tpcodl.jpeg`,
+    `${import.meta.env.BASE_URL}logos/tpsodl.jpg`
   ];
 
   return (
@@ -697,42 +697,42 @@ function AwardsCarousel() {
 
   const awards = [
     {
-      image: "/awards/award-1.jpeg",
+      image: `${import.meta.env.BASE_URL}awards/award-1.jpeg`,
       title: "Winner of Sustainable Startup Award",
       subtitle: "XTIC XR Startup award - XR Summit 2024"
     },
     {
-      image: "/awards/award-2.jpg",
+      image: `${import.meta.env.BASE_URL}awards/award-2.jpg`,
       title: "GOLD - Best Use of Augmented Reality and Metaverse",
       subtitle: "Brandon Hall HCM Excellence Awards 2025"
     },
     {
-      image: "/awards/award-3.jpeg",
+      image: `${import.meta.env.BASE_URL}awards/award-3.jpeg`,
       title: "The Emerging innovator in enterprise XR award",
       subtitle: "Startup Maanadu - 2024"
     },
     {
-      image: "/awards/award-4.jpeg",
+      image: `${import.meta.env.BASE_URL}awards/award-4.jpeg`,
       title: "iDEX 6.0 - Indian Navy Challenge Winner",
       subtitle: "Defence India Starup Challenge"
     },
     {
-      image: "/awards/award-5.jpeg",
+      image: `${import.meta.env.BASE_URL}awards/award-5.jpeg`,
       title: "iDEX 5.0 - Indian Air Force Challenge Winner",
       subtitle: "Defence India Starup Challenge"
     },
     {
-      image: "/awards/award-6.jpg",
+      image: `${import.meta.env.BASE_URL}awards/award-6.jpg`,
       title: "Honarary Award",
       subtitle: "Indian Air Force"
     },
     {
-      image: "/awards/award-7.jpg",
+      image: `${import.meta.env.BASE_URL}awards/award-7.jpg`,
       title: "Cohort 4 Winner of the IIMB & NSRCEL",
       subtitle: "Maruti Suzuki Incubation Program"
     },
     {
-      image: "/awards/award-8.jpg",
+      image: `${import.meta.env.BASE_URL}awards/award-8.jpg`,
       title: "Winner - Gold Award Towards commitment to improving HSE",
       subtitle: "OHSSAI startup Award "
     }
