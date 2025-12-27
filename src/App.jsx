@@ -688,6 +688,233 @@ function LogoCarousel() {
   );
 }
 
+function AwardsCarousel() {
+  // 3D Awards Carousel - https://codepen.io/roniee_1993/pen/WbQZjLo
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
+
+  const awards = [
+    {
+      image: "/awards/award-1.jpeg",
+      title: "Winner of Sustainable Startup Award",
+      subtitle: "XTIC XR Startup award - XR Summit 2024"
+    },
+    {
+      image: "/awards/award-2.jpg",
+      title: "GOLD - Best Use of Augmented Reality and Metaverse",
+      subtitle: "Brandon Hall HCM Excellence Awards 2025"
+    },
+    {
+      image: "/awards/award-3.jpeg",
+      title: "The Emerging innovator in enterprise XR award",
+      subtitle: "Startup Maanadu - 2024"
+    },
+    {
+      image: "/awards/award-4.jpeg",
+      title: "iDEX 6.0 - Indian Navy Challenge Winner",
+      subtitle: "Defence India Starup Challenge"
+    },
+    {
+      image: "/awards/award-5.jpeg",
+      title: "iDEX 5.0 - Indian Air Force Challenge Winner",
+      subtitle: "Defence India Starup Challenge"
+    },
+    {
+      image: "/awards/award-6.jpg",
+      title: "Honarary Award",
+      subtitle: "Indian Air Force"
+    },
+    {
+      image: "/awards/award-7.jpg",
+      title: "Cohort 4 Winner of the IIMB & NSRCEL",
+      subtitle: "Maruti Suzuki Incubation Program"
+    },
+    {
+      image: "/awards/award-8.jpg",
+      title: "Winner - Gold Award Towards commitment to improving HSE",
+      subtitle: "OHSSAI startup Award "
+    }
+  ];
+
+  const totalAwards = awards.length;
+
+  const getCardClass = (index) => {
+    const diff = (index - currentIndex + totalAwards) % totalAwards;
+
+    if (diff === 0) return "center";
+    if (diff === 1 || diff === totalAwards - 1) {
+      return diff === 1 ? "right-1" : "left-1";
+    }
+    if (diff === 2 || diff === totalAwards - 2) {
+      return diff === 2 ? "right-2" : "left-2";
+    }
+    return "hidden";
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+    // Pause auto-scroll when user manually navigates
+    setIsAutoScrollPaused(true);
+    setTimeout(() => setIsAutoScrollPaused(false), 6000); // Resume after 6 seconds
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalAwards);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalAwards) % totalAwards);
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsAutoScrollPaused(true);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      nextSlide();
+    }
+    if (touchStart - touchEnd < -75) {
+      prevSlide();
+    }
+    // Resume auto-scroll after 10 seconds
+    setTimeout(() => setIsAutoScrollPaused(false), 10000);
+  };
+
+  const handleMouseEnter = () => {
+    setIsAutoScrollPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsAutoScrollPaused(false);
+  };
+
+  const handleManualNavigation = () => {
+    setIsAutoScrollPaused(true);
+    setTimeout(() => setIsAutoScrollPaused(false), 10000);
+  };
+
+  // Keyboard navigation
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        prevSlide();
+        handleManualNavigation();
+      }
+      if (e.key === "ArrowRight") {
+        nextSlide();
+        handleManualNavigation();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Auto-scroll effect
+  React.useEffect(() => {
+    if (isAutoScrollPaused) return;
+
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // Auto-advance every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [currentIndex, isAutoScrollPaused]);
+
+  return (
+    <div
+      className="awards-carousel-container"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Carousel */}
+      <div className="relative h-96 flex items-center justify-center perspective-1000">
+        {/* Left Arrow */}
+        <button
+          onClick={() => {
+            prevSlide();
+            handleManualNavigation();
+          }}
+          className="absolute left-4 z-20 w-12 h-12 bg-white/90 dark:bg-slate-800/90 rounded-full shadow-lg hover:bg-white dark:hover:bg-slate-700 transition-all flex items-center justify-center text-2xl text-slate-700 dark:text-white"
+          aria-label="Previous award"
+        >
+          ‹
+        </button>
+
+        {/* Cards Track */}
+        <div
+          className="awards-track relative w-full h-full flex items-center justify-center"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {awards.map((award, index) => (
+            <div
+              key={index}
+              className={`awards-card ${getCardClass(index)}`}
+              onClick={() => {
+                const cardClass = getCardClass(index);
+                if (cardClass === "left-1") prevSlide();
+                if (cardClass === "right-1") nextSlide();
+              }}
+            >
+              <img
+                src={award.image}
+                alt={award.title}
+                className="w-full h-full object-cover rounded-xl"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Right Arrow */}
+        <button
+          onClick={() => {
+            nextSlide();
+            handleManualNavigation();
+          }}
+          className="absolute right-4 z-20 w-12 h-12 bg-white/90 dark:bg-slate-800/90 rounded-full shadow-lg hover:bg-white dark:hover:bg-slate-700 transition-all flex items-center justify-center text-2xl text-slate-700 dark:text-white"
+          aria-label="Next award"
+        >
+          ›
+        </button>
+      </div>
+
+      {/* Award Info */}
+      <div className="text-center mt-8">
+        <h3 className="text-2xl font-bold text-slate-900 dark:text-white transition-opacity duration-300">
+          {awards[currentIndex].title}
+        </h3>
+        <p className="text-slate-600 dark:text-slate-300 mt-2 transition-opacity duration-300">
+          {awards[currentIndex].subtitle}
+        </p>
+      </div>
+
+      {/* Pagination Dots */}
+      <div className="flex justify-center gap-2 mt-6">
+        {awards.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
+              ? "bg-indigo-600 w-8"
+              : "bg-slate-300 dark:bg-slate-600 hover:bg-slate-400"
+              }`}
+            aria-label={`Go to award ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ModeBadge({ modes }) {
   return (
     <div className="flex gap-2">
@@ -1028,6 +1255,12 @@ export default function SafetizenLanding() {
       <section className="max-w-7xl mx-auto px-6 py-8">
         <h2 className="text-2xl font-semibold text-center mb-6">Trusted By Industry Leaders</h2>
         <LogoCarousel />
+      </section>
+
+      {/* AWARDS CAROUSEL */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-semibold text-center mb-12">Awards & Recognition</h2>
+        <AwardsCarousel />
       </section>
 
       {/* CTA */}

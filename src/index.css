@@ -13,6 +13,7 @@ body {
   margin: 0;
   min-height: 100vh;
   background-color: inherit;
+  overflow-x: hidden;
 }
 
 /* Logo Carousel Animation */
@@ -33,4 +34,123 @@ body {
 
 .animate-scroll:hover {
   animation-play-state: paused;
+}
+
+/* Awards Carousel 3D Effect */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.awards-carousel-container {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.awards-track {
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.awards-card {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.awards-card.center {
+  transform: translateX(0) scale(1.1);
+  z-index: 10;
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.awards-card.left-1 {
+  transform: translateX(-100px) scale(0.9);
+  z-index: 5;
+  filter: grayscale(30%);
+  opacity: 0.8;
+}
+
+.awards-card.right-1 {
+  transform: translateX(100px) scale(0.9);
+  z-index: 5;
+  filter: grayscale(30%);
+  opacity: 0.8;
+}
+
+.awards-card.left-2 {
+  transform: translateX(-200px) scale(0.8);
+  z-index: 1;
+  filter: grayscale(70%);
+  opacity: 0.5;
+}
+
+.awards-card.right-2 {
+  transform: translateX(200px) scale(0.8);
+  z-index: 1;
+  filter: grayscale(70%);
+  opacity: 0.5;
+}
+
+.awards-card.hidden {
+  transform: scale(0);
+  opacity: 0;
+  z-index: 0;
+}
+
+.awards-card:hover:not(.center) {
+  filter: grayscale(0);
+}
+
+@media (max-width: 768px) {
+  .awards-card {
+    width: 200px;
+    height: 280px;
+  }
+
+  .awards-card.center {
+    transform: translateX(0) scale(1);
+  }
+
+  .awards-card.left-1 {
+    transform: translateX(-120px) scale(0.75);
+    opacity: 0.6;
+  }
+
+  .awards-card.right-1 {
+    transform: translateX(120px) scale(0.75);
+    opacity: 0.6;
+  }
+
+  .awards-card.left-2,
+  .awards-card.right-2 {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .awards-card {
+    width: 180px;
+    height: 250px;
+  }
+
+  .awards-card.center {
+    transform: translateX(0) scale(0.95);
+  }
+
+  .awards-card.left-1 {
+    transform: translateX(-100px) scale(0.65);
+    opacity: 0.5;
+  }
+
+  .awards-card.right-1 {
+    transform: translateX(100px) scale(0.65);
+    opacity: 0.5;
+  }
 }
