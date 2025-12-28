@@ -1076,45 +1076,154 @@ export default function SafetizenLanding() {
       </div>
 
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight">Immersive VR Safety Training Library for Enterprises</h1>
-          <p className="mt-4 text-slate-600 dark:text-slate-300">Ready-to-deploy, multilingual VR safety modules designed for Manufacturing, Infrastructure & Corporate environments — built for measurable competency.</p>
+      <section className="max-w-7xl mx-auto px-6 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div>
+            {/* Trust Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium mb-4">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              Trusted by 50+ Global Enterprises
+            </div>
 
-          <div className="mt-6 flex gap-3">
-            <a href="#modules" className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">View Modules</a>
-            <a href="https://aatral.io/contact-us" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition" aria-label="Request Demo (opens in new tab)">Request Demo</a>
-          </div>
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+              <span className="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+                Transform Safety Training
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+                With VR Immersion
+              </span>
+            </h1>
 
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
-            {HERO_STATS.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-xl p-4 text-center shadow-lg bg-gradient-to-br from-white via-indigo-50 to-white dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 border border-white/70 dark:border-slate-700/80"
-              >
-                <div className="text-2xl sm:text-3xl font-semibold text-indigo-600 dark:text-indigo-300 leading-tight break-words">
-                  {stat.value}
-                </div>
-                <div className="text-[12px] sm:text-sm text-slate-600 dark:text-slate-200 mt-2 leading-tight break-words">
-                  {stat.label}
+            {/* Value Proposition */}
+            <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+              Deploy <strong className="text-slate-900 dark:text-white">21+ ready-to-use VR safety modules</strong> in days, not months.
+              Reduce workplace incidents by up to 70% with immersive, measurable training.
+            </p>
+
+            {/* Key Benefits */}
+            <div className="mt-6 space-y-3">
+              <div className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <span className="font-semibold text-slate-900 dark:text-white">Deploy in 48 Hours</span>
+                  <span className="text-slate-600 dark:text-slate-300"> — No custom development needed</span>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="order-first md:order-last flex items-center justify-center">
-          <div className="w-full max-w-md bg-gradient-to-br from-indigo-50 to-white dark:from-slate-800 dark:to-slate-700 rounded-xl p-6 shadow-2xl">
-            <div className="aspect-video rounded-lg overflow-hidden bg-black">
-              <iframe
-                src="https://www.youtube.com/embed/rPZsNqnFfCU"
-                title="Safetizen Module Overview"
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              <div className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <span className="font-semibold text-slate-900 dark:text-white">Measurable Results</span>
+                  <span className="text-slate-600 dark:text-slate-300"> — Track competency with built-in assessments</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <span className="font-semibold text-slate-900 dark:text-white">Multilingual Support</span>
+                  <span className="text-slate-600 dark:text-slate-300"> — Train global teams effectively</span>
+                </div>
+              </div>
             </div>
-            <div className="mt-4 text-sm text-slate-500">Easily deployable modules, mapped to industry risks and Life Saving Rules.</div>
+
+            {/* Primary CTAs */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://aatral.io/contact-us"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-indigo-600 text-white text-lg font-semibold rounded-lg hover:bg-indigo-700 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+                aria-label="Book a Free VR Demo (opens in new tab)"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                Book Free VR Demo
+                <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-green-500 text-white text-xs font-bold rounded-full animate-pulse">
+                  Free
+                </span>
+              </a>
+              <a
+                href="#modules"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-lg font-semibold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+                Browse 21+ Modules
+              </a>
+            </div>
+
+            {/* Social Proof / Urgency */}
+            <div className="mt-6 flex flex-wrap items-center gap-6 text-sm text-slate-600 dark:text-slate-400">
+              <div className="flex items-center gap-2">
+                <div className="flex -space-x-2">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 border-2 border-white dark:border-slate-900"></div>
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white dark:border-slate-900"></div>
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-white dark:border-slate-900"></div>
+                </div>
+                <span className="font-medium text-slate-700 dark:text-slate-300">
+                  <strong className="text-slate-900 dark:text-white">500+</strong> safety professionals trained this month
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span className="font-medium text-slate-700 dark:text-slate-300">4.9/5 from enterprise clients</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Video/Visual */}
+          <div className="order-first md:order-last">
+            <div className="relative w-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-6 shadow-2xl">
+              {/* Featured Badge */}
+              <div className="absolute -top-3 -right-3 px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-sm font-bold rounded-lg shadow-lg transform rotate-3">
+                ⭐ Award Winning
+              </div>
+
+              <div className="aspect-video rounded-xl overflow-hidden bg-black shadow-inner">
+                <iframe
+                  src="https://www.youtube.com/embed/rPZsNqnFfCU"
+                  title="Safetizen VR Training Demo"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <p className="text-sm text-slate-600 dark:text-slate-300 font-medium">
+                  🎥 Watch: How enterprises reduce workplace incidents by 70%
+                </p>
+              </div>
+            </div>
+
+            {/* Stats Cards */}
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              {HERO_STATS.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-xl p-4 text-center shadow-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow"
+                >
+                  <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 leading-tight">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-tight">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
