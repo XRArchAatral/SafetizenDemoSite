@@ -36,6 +36,29 @@ body {
   animation-play-state: paused;
 }
 
+/* Logo Carousel Center Spotlight Effect */
+.logo-carousel-wrapper {
+  position: relative;
+}
+
+.logo-item {
+  transition: filter 0.5s ease;
+}
+
+/* Center area spotlight - logos in center 40% of viewport appear colored */
+@media (min-width: 768px) {
+  .logo-carousel-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+    pointer-events: none;
+  }
+}
+
 /* Awards Carousel 3D Effect */
 .perspective-1000 {
   perspective: 1000px;

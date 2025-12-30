@@ -1,14 +1,14 @@
 # Aatral Safetizen™ - XR Safety Training Platform
 
-A modern, responsive product page for Aatral Safetizen™, an enterprise XR safety training platform featuring 21+ ready-to-deploy VR safety modules. Built with React, Vite, and TailwindCSS.
+A modern, responsive product page for Aatral Safetizen™, an enterprise XR safety training platform featuring 20+ ready-to-deploy VR safety modules. Built with React, Vite, and TailwindCSS.
 
 ## 🌟 Overview
 
 **Aatral Safetizen™** is part of Aatral's comprehensive enterprise XR training platform suite, providing immersive VR safety training modules for Manufacturing, Infrastructure, and Corporate environments.
 
 ### Key Features
-- **21+ VR Safety Modules** - Ready-to-deploy training across General Safety, Killer Risk Safety, and EOT Crane Simulators
-- **Multilingual Support** - All modules available in English and Hindi
+- **20+ VR Safety Modules** - Ready-to-deploy training across multiple safety categories and EOT Crane Simulators
+- **Multilingual Support** - Modules available in English and Hindi
 - **3 Learning Modes** - Guided, Quiz, and Assessment for measurable competency
 - **Industry-Specific** - Tailored for Manufacturing, Infrastructure, and Corporate sectors
 - **Meta Quest Compatible** - Optimized for Meta Quest 3 and Meta Quest 3S
@@ -16,26 +16,26 @@ A modern, responsive product page for Aatral Safetizen™, an enterprise XR safe
 ## 🎯 Product Page Sections
 
 ### 1. Hero Section
-- **Compelling Value Proposition** - "Deploy 21+ ready-to-use VR safety modules in days, not months"
-- **Trust Signals** - "Trusted by 50+ Global Enterprises"
-- **Clear CTAs** - "Book Free VR Demo" and "Browse 21+ Modules"
-- **Key Benefits** - Deploy in 48 Hours, Measurable Results, Multilingual Support
-- **Social Proof** - 500+ safety professionals trained this month, 4.9/5 rating
+- **Compelling Value Proposition** - "Immersive VR Safety Training Library for Enterprises"
+- **Clear CTAs** - "View Modules" and "Request Demo"
 - **Stats Showcase** - 21+ Modules, 3 Learning Modes, Multi Languages, Quest 3/3S support
+- **Video Demo** - Embedded YouTube module overview
 
 ### 2. Interactive Module Library
-- **21+ Training Modules** organized by category:
-  - Office Safety
-  - Excavation Safety
-  - PPE Orientation
-  - Hot Works
-  - Electrical Safety
-  - Work At Height
-  - Fire Safety
-  - Chemical Safety
-  - Environmental Safety
-  - CPR Training
-  - Shop Floor Safety
+- **20 Training Modules** organized by category:
+  - Work At Height (4 modules)
+  - Fire Safety (2 modules)
+  - Confined Space Safety (2 modules)
+  - Excavation Safety (2 modules)
+  - Electrical Safety (2 modules)
+  - Hot Works (1 module)
+  - Office Safety (1 module)
+  - Shop Floor Safety (1 module)
+  - PPE Orientation (1 module)
+  - Environmental Safety (1 module)
+  - Chemical Safety (1 module)
+  - CPR Training (1 module)
+  - Gas Leakage Response (1 module)
 
 #### Filtering System
 - **Search** - Real-time search by module name
@@ -48,6 +48,7 @@ A modern, responsive product page for Aatral Safetizen™, an enterprise XR safe
 - **Mobile-Friendly** - No scrolling required on mobile devices
 - **Complete Information** - Category, Description, Learning Objective, Runtime, Languages, Industries, Devices
 - **Video Integration** - Direct links to module demo videos
+- **Keyboard Support** - Escape key to close modal
 
 ### 3. About Aatral Safetizen™
 - Executive summary of the platform
@@ -69,9 +70,11 @@ A modern, responsive product page for Aatral Safetizen™, an enterprise XR safe
 - Timeline: December 2025
 
 ### 7. Trusted By Industry Leaders
-- **Infinite Logo Carousel** - 31 company logos including Tata, L&T, JSW, Indian Armed Forces
+- **Infinite Logo Carousel** - 41 company logos including Tata, L&T, JSW, Jindal Steel, GE Vernova, Indian Armed Forces
 - **Smooth Animation** - 120-second loop with hover pause
-- **Visual Effects** - Grayscale to color on hover
+- **Center Spotlight Effect** - Logos in center 50% of viewport appear in full color
+- **Grayscale Effect** - Side logos remain grayscale for visual focus
+- **Hover Effect** - Any logo shows color on hover
 
 ### 8. Awards & Recognition
 - **3D Awards Carousel** - 8 award certificates
@@ -114,12 +117,12 @@ The app will be available at `http://localhost:5173`
 ```
 safetizen-app/
 ├── public/
-│   ├── logos/              # 31 company logos
+│   ├── logos/              # 41 company logos
 │   ├── awards/             # 8 award certificates
 │   ├── aatral-logo.png     # Aatral logo (light mode)
 │   └── aatral-dark.png     # Aatral logo (dark mode)
 ├── src/
-│   ├── App.jsx             # Main application (21+ modules data)
+│   ├── App.jsx             # Main application (20 modules + 4 EOT simulators)
 │   ├── index.css           # Global styles & animations
 │   └── main.jsx            # Application entry point
 ├── .github/
@@ -127,7 +130,7 @@ safetizen-app/
 │       └── deploy.yml      # GitHub Pages deployment
 ├── index.html              # HTML template
 ├── package.json
-├── vite.config.js          # Vite configuration
+├── vite.config.js          # Vite configuration (base: '/SafetizenDemoSite/')
 ├── tailwind.config.js      # TailwindCSS configuration
 └── README.md
 ```
@@ -253,23 +256,38 @@ npm run build
 ## 🎭 Interactive Features
 
 ### Logo Carousel
-- **Speed**: 120 seconds for full loop
-- **Animation**: Linear infinite scroll
+- **Speed**: 120 seconds for full loop (41 logos)
+- **Animation**: Linear infinite scroll with CSS keyframes
 - **Hover**: Pauses animation
-- **Effect**: Grayscale → Color transition
+- **Center Spotlight Effect**: 
+  - Logos in center 50% of viewport (25%-75%) appear in **full color**
+  - Side logos remain **grayscale** for visual focus
+  - Smooth 500ms transition between states
+  - Uses Intersection Observer + scroll interval for real-time detection
+- **Hover Effect**: Any logo shows color on hover
+- **Responsive**: Optimized for all screen sizes
 
 ### Awards Carousel (3D)
 - **Auto-scroll**: Every 5 seconds
-- **Pause**: On hover, click, touch, or keyboard
-- **Resume**: After 6 seconds of inactivity
-- **3D Effect**: Center card 1.1x scale
-- **Navigation**: Arrows, dots, keyboard (← →), touch/swipe
+- **Pause**: On hover, click, touch, or keyboard interaction
+- **Resume**: After 10 seconds of inactivity (6 seconds for pagination dots)
+- **3D Effect**: 
+  - Center card: 1.1x scale, full color
+  - Side cards (±1): 0.9x scale, 30% grayscale
+  - Far cards (±2): 0.8x scale, 70% grayscale
+- **Navigation**: 
+  - Arrow buttons (left/right)
+  - Pagination dots
+  - Keyboard (← →)
+  - Touch/swipe (75px threshold)
+- **Responsive**: Scaled down for mobile and tablet
 
 ### Module Filtering
 - **Real-time Search** - Instant results as you type
 - **Multi-filter Support** - Combine category, language, and runtime
-- **Responsive UI** - Mobile dropdown, desktop buttons
+- **Responsive UI** - Category buttons on all screen sizes
 - **Smooth Transitions** - Animated filter changes
+- **Empty State** - Helpful message when no results found
 
 ## 📊 Performance
 

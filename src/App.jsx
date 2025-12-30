@@ -7,97 +7,6 @@ import React, { useState, useMemo } from "react";
 const MODULES = [
   {
     id: 1,
-    name: "Office Safety – Corporate Office",
-    category: "Office Safety",
-    runtime: "13 mins",
-    languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["General", "Corporate"],
-    devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/1Hod_L8VnMU",
-    description: "The main objective of this training module is to create a safer office environment by educating employees on critical safety practices to prevent injuries and emergencies.",
-    learningObjective: "Learn fire evacuation procedures, ergonomics and posture safety, slip-trip-fall prevention, housekeeping practices, electrical safety, and risk assessment through immersive VR scenarios with analytics and multilingual support."
-  },
-  {
-    id: 2,
-    name: "Excavation Safety – Construction Excavation Training",
-    category: "Excavation Safety",
-    runtime: "10 mins",
-    languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["Infrastructure"],
-    devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/B3lWSfs1Omo",
-    description: "The main objective of this training module is to ensure workers understand excavation hazards and follow safe procedures to prevent cave-ins, utility strikes, and site accidents.",
-    learningObjective: "Identify excavation hazards, understand soil classification and protective systems, follow safe entry-exit procedures, avoid underground utilities, manage restricted zones, practice VR-based hazard identification, and respond to emergencies."
-  },
-  {
-    id: 3,
-    name: "Excavation Safety – Power Line Excavation Training",
-    category: "Excavation Safety",
-    runtime: "10 mins",
-    languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["Infrastructure"],
-    devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/B3lWSfs1Omo",
-    description: "The main objective of this training module is to ensure workers understand excavation hazards near underground power lines and utilities.",
-    learningObjective: "Learn to identify power-line excavation risks, apply soil protection systems, locate underground services, prevent utility strikes, and respond to emergencies using immersive VR simulations."
-  },
-  {
-    id: 4,
-    name: "PPE Orientation – General V1",
-    category: "PPE Orientation",
-    runtime: "5 mins",
-    languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["General", "Manufacturing", "Infrastructure"],
-    devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/e3kierOsgxs",
-    description: "The main objective of this training module is to ensure employees understand the correct selection, usage, and maintenance of Personal Protective Equipment.",
-    learningObjective: "Learn PPE types, correct selection by risk, wearing and inspection procedures, maintenance, storage, and behavior reinforcement through VR scenarios with analytics and multilingual support."
-  },
-  {
-    id: 5,
-    name: "Hot Works – Welding",
-    category: "Hot Works",
-    runtime: "10 mins",
-    languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["Manufacturing", "Infrastructure"],
-    devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/EchSPTJs8Jc",
-    description: "This VR training module helps learners understand hot work hazards, welding risks, PPE usage, and safe arc-welding procedures.",
-    learningObjective: "Identify fire, burn, shock, and fume hazards, inspect welding equipment, assess risks, perform safe welding steps, and reinforce compliance using immersive simulations."
-  },
-  {
-    id: 6,
-    name: "Electrical Safety – LOTO",
-    category: "Electrical Safety",
-    runtime: "10 mins",
-    languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["Manufacturing"],
-    devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/FcBoEBMCQ98",
-    description: "This training module ensures workers correctly apply Lockout/Tagout procedures to isolate hazardous electrical energy.",
-    learningObjective: "Understand LOTO requirements, identify energy sources, apply locking and tagging, verify zero-energy states, follow communication protocols, and practice procedures in VR."
-  },
-  {
-    id: 7,
-    name: "Electrical Safety – Construction",
-    category: "Electrical Safety",
-    runtime: "10 mins",
-    languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["Manufacturing", "Infrastructure"],
-    devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/FcBoEBMCQ98",
-    description: "This module prepares workers to identify and avoid electrical hazards common in construction environments.",
-    learningObjective: "Recognize temporary power risks, unsafe wiring, grounding issues, wet conditions, and practice safe decision-making and emergency response in VR scenarios."
-  },
-  {
-    id: 8,
     name: "Work At Height – Roof Sheet Change",
     category: "Work At Height",
     runtime: "10 mins",
@@ -110,20 +19,7 @@ const MODULES = [
     learningObjective: "Use ladders and fall protection systems, identify roof hazards, manage materials safely, prepare for emergencies, and reinforce safe practices through VR simulations."
   },
   {
-    id: 9,
-    name: "Work At Height – Scaffolding Safety",
-    category: "Work At Height",
-    runtime: "10 mins",
-    languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["Manufacturing", "Infrastructure"],
-    devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/GfuGvQ79Wt4",
-    description: "This training module ensures workers understand safe practices for erecting, using, and dismantling scaffolding.",
-    learningObjective: "Inspect scaffolds, identify hazards, use guardrails and fall protection, manage materials, and apply safe practices in VR-based scenarios."
-  },
-  {
-    id: 10,
+    id: 2,
     name: "Fire Safety – General Extinguisher Training V2",
     category: "Fire Safety",
     runtime: "10 mins",
@@ -136,59 +32,98 @@ const MODULES = [
     learningObjective: "Understand fire classes, extinguisher types, evacuation planning, risk assessment, and emergency response using realistic VR fire scenarios."
   },
   {
-    id: 11,
-    name: "Work At Height – Vertigo Test",
-    category: "Work At Height",
-    runtime: "5 mins",
+    id: 3,
+    name: "Confined Space Safety (Manufacturing)",
+    category: "Confined Space",
+    runtime: "10 mins",
     languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["Manufacturing", "Infrastructure"],
+    modes: { guided: true, quiz: true, assessment: false },
+    industries: ["Manufacturing"],
     devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/GfuGvQ79Wt4",
-    description: "This assessment module evaluates physical and psychological readiness to work at heights.",
-    learningObjective: "Assess balance, height tolerance, fitness for duty, PPE awareness, and decision-making using immersive height simulations."
+    video: "https://youtu.be/IXd__McjJxE",
+    description: "Tank entry storyline with permit reviews, atmospheric testing, and attendant coordination.",
+    learningObjective: "Learners enforce confined space permits, maintain comms, and react to gas alarm scenarios."
   },
   {
-    id: 12,
-    name: "Work At Height – Manlifter Safety",
-    category: "Work At Height",
-    runtime: "5 mins",
-    languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["Manufacturing", "Infrastructure"],
-    devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/GfuGvQ79Wt4",
-    description: "This training module prepares workers to safely operate man lifters and elevated work platforms.",
-    learningObjective: "Understand inspections, stability risks, fall protection, emergency lowering, communication, and hazard control through VR scenarios."
-  },
-  {
-    id: 13,
-    name: "Fire Safety – Fire Evacuation Safety",
-    category: "Fire Safety",
-    runtime: "15 mins",
-    languages: ["English", "Hindi"],
-    modes: { guided: true, quiz: false, assessment: true },
-    industries: ["General", "Corporate"],
-    devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/1Hod_L8VnMU",
-    description: "This training module prepares employees to evacuate safely during fire emergencies in office environments.",
-    learningObjective: "Follow evacuation routes, assist others, avoid unsafe actions, and make confident decisions under pressure in VR fire drills."
-  },
-  {
-    id: 14,
-    name: "Chemical Safety – Hazardous Substances Handling",
-    category: "Chemical Safety",
+    id: 4,
+    name: "Hot Works – Welding",
+    category: "Hot Works",
     runtime: "10 mins",
     languages: ["English", "Hindi"],
     modes: { guided: true, quiz: false, assessment: true },
     industries: ["Manufacturing", "Infrastructure"],
     devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/j1RGESoqhZ4",
-    description: "This module ensures workers safely handle, store, and work with hazardous chemicals.",
-    learningObjective: "Identify chemical hazards, use SDS, apply PPE, handle spills, manage exposure risks, and respond to emergencies using VR simulations."
+    video: "https://youtu.be/EchSPTJs8Jc",
+    description: "This VR training module helps learners understand hot work hazards, welding risks, PPE usage, and safe arc-welding procedures.",
+    learningObjective: "Identify fire, burn, shock, and fume hazards, inspect welding equipment, assess risks, perform safe welding steps, and reinforce compliance using immersive simulations."
   },
   {
-    id: 15,
+    id: 5,
+    name: "Electrical Safety – LOTO",
+    category: "Electrical Safety",
+    runtime: "10 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["Manufacturing"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/FcBoEBMCQ98",
+    description: "This training module ensures workers correctly apply Lockout/Tagout procedures to isolate hazardous electrical energy.",
+    learningObjective: "Understand LOTO requirements, identify energy sources, apply locking and tagging, verify zero-energy states, follow communication protocols, and practice procedures in VR."
+  },
+  {
+    id: 6,
+    name: "Office Safety – Corporate Office",
+    category: "Office Safety",
+    runtime: "13 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["General", "Corporate"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/1Hod_L8VnMU",
+    description: "The main objective of this training module is to create a safer office environment by educating employees on critical safety practices to prevent injuries and emergencies.",
+    learningObjective: "Learn fire evacuation procedures, ergonomics and posture safety, slip-trip-fall prevention, housekeeping practices, electrical safety, and risk assessment through immersive VR scenarios with analytics and multilingual support."
+  },
+  {
+    id: 7,
+    name: "Shop Floor Safety – Life Saving Rules",
+    category: "Shop Floor Safety",
+    runtime: "5 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["Manufacturing"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/VbRdivaGjDk",
+    description: "This training module ensures workers understand and follow life-saving rules on shop floors.",
+    learningObjective: "Identify machinery hazards, follow safe movement practices, use PPE, maintain housekeeping, and comply with operational safety rules."
+  },
+  {
+    id: 8,
+    name: "Excavation Safety – Construction Excavation Training",
+    category: "Excavation Safety",
+    runtime: "10 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["Infrastructure"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/B3lWSfs1Omo",
+    description: "The main objective of this training module is to ensure workers understand excavation hazards and follow safe procedures to prevent cave-ins, utility strikes, and site accidents.",
+    learningObjective: "Identify excavation hazards, understand soil classification and protective systems, follow safe entry-exit procedures, avoid underground utilities, manage restricted zones, practice VR-based hazard identification, and respond to emergencies."
+  },
+  {
+    id: 9,
+    name: "PPE Orientation – General V1",
+    category: "PPE Orientation",
+    runtime: "5 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["General", "Manufacturing", "Infrastructure"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/e3kierOsgxs",
+    description: "The main objective of this training module is to ensure employees understand the correct selection, usage, and maintenance of Personal Protective Equipment.",
+    learningObjective: "Learn PPE types, correct selection by risk, wearing and inspection procedures, maintenance, storage, and behavior reinforcement through VR scenarios with analytics and multilingual support."
+  },
+  {
+    id: 10,
     name: "Environmental Safety – Waste Segregation",
     category: "Environmental Safety",
     runtime: "5 mins",
@@ -201,7 +136,84 @@ const MODULES = [
     learningObjective: "Classify waste types, apply color-coded segregation, handle hazardous waste, follow compliance standards, and practice in immersive environments."
   },
   {
+    id: 11,
+    name: "Electrical Safety – Construction",
+    category: "Electrical Safety",
+    runtime: "10 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["Manufacturing", "Infrastructure"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/FcBoEBMCQ98",
+    description: "This module prepares workers to identify and avoid electrical hazards common in construction environments.",
+    learningObjective: "Recognize temporary power risks, unsafe wiring, grounding issues, wet conditions, and practice safe decision-making and emergency response in VR scenarios."
+  },
+  {
+    id: 12,
+    name: "Work At Height – Scaffolding Safety",
+    category: "Work At Height",
+    runtime: "10 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["Manufacturing", "Infrastructure"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/GfuGvQ79Wt4",
+    description: "This training module ensures workers understand safe practices for erecting, using, and dismantling scaffolding.",
+    learningObjective: "Inspect scaffolds, identify hazards, use guardrails and fall protection, manage materials, and apply safe practices in VR-based scenarios."
+  },
+  {
+    id: 13,
+    name: "Work At Height – Vertigo Test",
+    category: "Work At Height",
+    runtime: "5 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["Manufacturing", "Infrastructure"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/GfuGvQ79Wt4",
+    description: "This assessment module evaluates physical and psychological readiness to work at heights.",
+    learningObjective: "Assess balance, height tolerance, fitness for duty, PPE awareness, and decision-making using immersive height simulations."
+  },
+  {
+    id: 14,
+    name: "Excavation Safety – Power Line Excavation Training",
+    category: "Excavation Safety",
+    runtime: "10 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["Infrastructure"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/B3lWSfs1Omo",
+    description: "The main objective of this training module is to ensure workers understand excavation hazards near underground power lines and utilities.",
+    learningObjective: "Learn to identify power-line excavation risks, apply soil protection systems, locate underground services, prevent utility strikes, and respond to emergencies using immersive VR simulations."
+  }, {
+    id: 15,
+    name: "Fire Safety – Fire Evacuation Safety",
+    category: "Fire Safety",
+    runtime: "15 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["General", "Corporate"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/w5nbfbZwijQ",
+    description: "This training module prepares employees to evacuate safely during fire emergencies in office environments.",
+    learningObjective: "Follow evacuation routes, assist others, avoid unsafe actions, and make confident decisions under pressure in VR fire drills."
+  },
+  {
     id: 16,
+    name: "Chemical Safety – Hazardous Substances Handling",
+    category: "Chemical Safety",
+    runtime: "10 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: false, assessment: true },
+    industries: ["Manufacturing", "Infrastructure"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/j1RGESoqhZ4",
+    description: "This module ensures workers safely handle, store, and work with hazardous chemicals.",
+    learningObjective: "Identify chemical hazards, use SDS, apply PPE, handle spills, manage exposure risks, and respond to emergencies using VR simulations."
+  },
+  {
+    id: 17,
     name: "CPR Training – Basic Life Support",
     category: "CPR Training",
     runtime: "5 mins",
@@ -214,19 +226,45 @@ const MODULES = [
     learningObjective: "Perform CPR with correct technique, recognize cardiac arrest, follow the chain of survival, and respond confidently in VR emergency simulations."
   },
   {
-    id: 17,
-    name: "Shop Floor Safety – Life Saving Rules",
-    category: "Shop Floor Safety",
+    id: 18,
+    name: "Work At Height – Manlifter Safety",
+    category: "Work At Height",
     runtime: "5 mins",
     languages: ["English", "Hindi"],
     modes: { guided: true, quiz: false, assessment: true },
+    industries: ["Manufacturing", "Infrastructure"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/GfuGvQ79Wt4",
+    description: "This training module prepares workers to safely operate man lifters and elevated work platforms.",
+    learningObjective: "Understand inspections, stability risks, fall protection, emergency lowering, communication, and hazard control through VR scenarios."
+  },
+  {
+    id: 19,
+    name: "Confined Space Safety (Infrastructure)",
+    category: "Confined Space",
+    runtime: "10 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: true, assessment: false },
+    industries: ["Infrastructure"],
+    devices: ["Meta Quest 3", "Meta Quest 3S"],
+    video: "https://youtu.be/IXd__McjJxE",
+    description: "Utility vault inspection module focusing on underground risks, ventilation, and retrieval setups.",
+    learningObjective: "Learners adapt confined space controls to linear projects and brief contractors on rescue options."
+  },
+  {
+    id: 20,
+    name: "Gas Leakage Response",
+    category: "Gas Safety",
+    runtime: "10 mins",
+    languages: ["English", "Hindi"],
+    modes: { guided: true, quiz: true, assessment: false },
     industries: ["Manufacturing"],
     devices: ["Meta Quest 3", "Meta Quest 3S"],
-    video: "https://youtu.be/VbRdivaGjDk",
-    description: "This training module ensures workers understand and follow life-saving rules on shop floors.",
-    learningObjective: "Identify machinery hazards, follow safe movement practices, use PPE, maintain housekeeping, and comply with operational safety rules."
+    video: "https://youtu.be/9lA4d_C4mKc",
+    description: "Process line leak scenario showing detection cues, emergency ventilation, and isolation valves.",
+    learningObjective: "Learners practise raising alarms, executing leak isolation SOPs, and coordinating with emergency response."
   },
-  /* {
+  /* { 
       id: 1,
       name: "Fire Safety Awareness",
       category: "General Safety", //11
@@ -404,7 +442,7 @@ const MODULES = [
       modes: { guided: true, quiz: true, assessment: false },
       industries: ["Manufacturing"],
       devices: ["Meta Quest 3", "Meta Quest 3S"],
-      video: "gas leakage 2.mp4",
+      video: "9lA4d_C4mKc",
       description: "Process line leak scenario showing detection cues, emergency ventilation, and isolation valves.",
       learningObjective: "Learners practise raising alarms, executing leak isolation SOPs, and coordinating with emergency response."
     },
@@ -585,17 +623,18 @@ const MODULES = [
 const EOT_CATEGORY = "EOT Crane Simulator";
 const GENERAL_MODULES = MODULES.filter((m) => m.category !== EOT_CATEGORY);
 const EOT_MODULES = MODULES.filter((m) => m.category === EOT_CATEGORY);
-//const CATEGORIES = ["All", "General Safety", "Killer Risks"];
 const CATEGORIES = [
   "All",
-  "Office Safety",
-  "Excavation Safety",
-  "PPE Orientation",
+  "Fire Safety",
   "Hot Works",
   "Electrical Safety",
   "Work At Height",
-  "Fire Safety",
+  "Confined Space",
+  "Office Safety",
+  "Excavation Safety",
+  "PPE Orientation",
   "Chemical Safety",
+  "Gas Safety",
   "Environmental Safety",
   "CPR Training",
   "Shop Floor Safety"
@@ -636,6 +675,7 @@ function LogoCarousel() {
     { src: `${import.meta.env.BASE_URL}logos/ashokleyland.jpeg`, name: "Ashok Leyland" },
     { src: `${import.meta.env.BASE_URL}logos/toyoto.jpeg`, name: "Toyota" },
     { src: `${import.meta.env.BASE_URL}logos/tatapower.jpeg`, name: "Tata Power" },
+    { src: `${import.meta.env.BASE_URL}logos/Jindalsteel.png`, name: "Jindal Steel" },
     { src: `${import.meta.env.BASE_URL}logos/tataprojects.jpeg`, name: "Tata Projects" },
     { src: `${import.meta.env.BASE_URL}logos/ey.jpg`, name: "EY" },
     { src: `${import.meta.env.BASE_URL}logos/jsw.jpeg`, name: "JSW" },
@@ -660,28 +700,110 @@ function LogoCarousel() {
     { src: `${import.meta.env.BASE_URL}logos/acedesigners.jpeg`, name: "Ace Designers" },
     { src: `${import.meta.env.BASE_URL}logos/allison.jpeg`, name: "Allison" },
     { src: `${import.meta.env.BASE_URL}logos/asp.jpg`, name: "ASP" },
-    { src: `${import.meta.env.BASE_URL}logos/tpcodl.jpeg`, name: "TP CODL" },
-    { src: `${import.meta.env.BASE_URL}logos/tpsodl.jpg`, name: "TP SODL" }
+    { src: `${import.meta.env.BASE_URL}logos/tpcodl.jpeg`, name: "TPCODL" },
+    { src: `${import.meta.env.BASE_URL}logos/tpsodl.jpg`, name: "TPSODL" },
+    { src: `${import.meta.env.BASE_URL}logos/avery.png`, name: "Avery Dennison" },
+    { src: `${import.meta.env.BASE_URL}logos/ehsguru.jpeg`, name: "EHS Guru" },
+    { src: `${import.meta.env.BASE_URL}logos/gevernova.png`, name: "GE Vernova" },
+    { src: `${import.meta.env.BASE_URL}logos/haldia-petrochemical.png`, name: "Haldia Petrochemicals" },
+    { src: `${import.meta.env.BASE_URL}logos/nifst.jpeg`, name: "NIFST" },
+    { src: `${import.meta.env.BASE_URL}logos/npcil.jpeg`, name: "NPCIL" },
+    { src: `${import.meta.env.BASE_URL}logos/pentasafe.jpeg`, name: "Pentasafe" },
+    { src: `${import.meta.env.BASE_URL}logos/torrent_power.png`, name: "Torrent Power" },
+    { src: `${import.meta.env.BASE_URL}logos/vsl.png`, name: "VSL" }
   ];
 
+  const containerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const img = entry.target.querySelector('img');
+          if (img) {
+            // Check if logo is in center 50% of viewport
+            const rect = entry.boundingClientRect;
+            const viewportWidth = window.innerWidth;
+            const centerStart = viewportWidth * 0.25;
+            const centerEnd = viewportWidth * 0.75;
+            const logoCenter = rect.left + rect.width / 2;
+
+            if (logoCenter >= centerStart && logoCenter <= centerEnd) {
+              img.style.filter = 'grayscale(0)';
+            } else {
+              img.style.filter = 'grayscale(1)';
+            }
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    );
+
+    const container = containerRef.current;
+    if (container) {
+      const logoItems = container.querySelectorAll('.logo-item');
+      logoItems.forEach((item) => observer.observe(item));
+
+      // Also update on scroll for smooth transitions
+      const handleScroll = () => {
+        logoItems.forEach((item) => {
+          const img = item.querySelector('img');
+          if (img) {
+            const rect = item.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            const centerStart = viewportWidth * 0.25;
+            const centerEnd = viewportWidth * 0.75;
+            const logoCenter = rect.left + rect.width / 2;
+
+            if (logoCenter >= centerStart && logoCenter <= centerEnd) {
+              img.style.filter = 'grayscale(0)';
+            } else {
+              img.style.filter = 'grayscale(1)';
+            }
+          }
+        });
+      };
+
+      const scrollInterval = setInterval(handleScroll, 100);
+
+      return () => {
+        logoItems.forEach((item) => observer.unobserve(item));
+        clearInterval(scrollInterval);
+      };
+    }
+  }, []);
+
   return (
-    <div className="relative w-full overflow-hidden bg-white dark:bg-slate-900 py-8">
+    <div className="relative w-full overflow-hidden bg-white dark:bg-slate-900 py-8 logo-carousel-wrapper">
       {/* Gradient overlays for fade effect */}
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
 
       {/* Scrolling track */}
-      <div className="flex animate-scroll">
+      <div ref={containerRef} className="flex animate-scroll">
         {/* First set of logos */}
         {logos.map((logo, idx) => (
-          <div key={`logo-1-${idx}`} className="flex-shrink-0 w-64 px-4">
-            <img src={logo.src} alt={`${logo.name} logo`} className="h-24 w-full object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+          <div key={`logo-1-${idx}`} className="flex-shrink-0 w-64 px-4 logo-item">
+            <img
+              src={logo.src}
+              alt={`${logo.name} logo`}
+              className="h-24 w-full object-contain transition-all duration-500 hover:grayscale-0"
+              style={{ filter: 'grayscale(1)' }}
+            />
           </div>
         ))}
         {/* Duplicate set for infinite scroll */}
         {logos.map((logo, idx) => (
-          <div key={`logo-2-${idx}`} className="flex-shrink-0 w-64 px-4">
-            <img src={logo.src} alt={`${logo.name} logo`} className="h-24 w-full object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+          <div key={`logo-2-${idx}`} className="flex-shrink-0 w-64 px-4 logo-item">
+            <img
+              src={logo.src}
+              alt={`${logo.name} logo`}
+              className="h-24 w-full object-contain transition-all duration-500 hover:grayscale-0"
+              style={{ filter: 'grayscale(1)' }}
+            />
           </div>
         ))}
       </div>
@@ -1096,7 +1218,7 @@ export default function SafetizenLanding() {
               </span>
               <br />
               <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-                XR Safety Training Platform
+                VR Safety Training Platform
               </span>
             </h1>
 
@@ -1413,16 +1535,16 @@ export default function SafetizenLanding() {
         <h2 className="text-2xl font-semibold">Roadmap (Upcoming)</h2>
         <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="p-4 bg-white dark:bg-slate-800/70 rounded border border-slate-200 dark:border-slate-700">
+            <h3 className="font-semibold text-slate-900 dark:text-white">Shop Floor Safety</h3>
+            <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">February 2025</p>
+          </div>
+          <div className="p-4 bg-white dark:bg-slate-800/70 rounded border border-slate-200 dark:border-slate-700">
             <h3 className="font-semibold text-slate-900 dark:text-white">Chemical Safety</h3>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">December 2025</p>
+            <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">April 2025</p>
           </div>
           <div className="p-4 bg-white dark:bg-slate-800/70 rounded border border-slate-200 dark:border-slate-700">
             <h3 className="font-semibold text-slate-900 dark:text-white">Material Handling</h3>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">December 2025</p>
-          </div>
-          <div className="p-4 bg-white dark:bg-slate-800/70 rounded border border-slate-200 dark:border-slate-700">
-            <h3 className="font-semibold text-slate-900 dark:text-white">Shop Floor Safety</h3>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">December 2025</p>
+            <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">April 2025</p>
           </div>
         </div>
       </section>
@@ -1485,7 +1607,7 @@ export default function SafetizenLanding() {
             <div className="text-sm text-slate-600 dark:text-slate-400">Manapakkam Main Road, Manapakkam</div>
             <div className="text-sm text-slate-600 dark:text-slate-400">Chennai - 600125, Tamilnadu, India.</div>
             <div className="text-sm text-slate-600 dark:text-slate-400 mt-3">Landline: 044-43589770</div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">Mob: (+91)7338945666 / 9830714314 / 9600067005</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Mob: (+91)9600067005 / 7338945666 / 9830714314</div>
             <div className="text-sm text-slate-600 dark:text-slate-400">US number: +1(669) 249-5831</div>
             <div className="text-sm text-slate-600 dark:text-slate-400 mt-2">Mail: <a href="mailto:sales@aatral.io" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition">sales@aatral.io</a></div>
           </div>
