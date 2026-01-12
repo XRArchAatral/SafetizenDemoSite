@@ -1166,10 +1166,7 @@ export default function SafetizenLanding() {
             className="w-40 h-16 object-contain hidden dark:block"
             loading="lazy"
           />
-          <div>
-            <div className="font-bold text-xl text-slate-900 dark:text-white">Aatral</div>
-            <div className="text-xs text-slate-500 dark:text-slate-400">Safetizen™ XR Safety Training</div>
-          </div>
+          <div className="text-base text-slate-800 dark:text-slate-200">Safetizen™ XR Safety Training</div>
         </div>
         <nav className="hidden md:flex items-center gap-6 text-sm text-slate-700 dark:text-slate-300">
           <a href="#modules" className="hover:underline">Modules</a>
@@ -1858,7 +1855,7 @@ export default function SafetizenLanding() {
                 loading="lazy"
               />
               <div>
-                <div className="font-bold text-lg text-slate-900 dark:text-white">Aatral</div>
+                {/* <div className="font-bold text-lg text-slate-900 dark:text-white">Aatral</div> */}
                 <div className="text-sm text-slate-700 dark:text-slate-400 mt-1">Safetizen™ XR Safety Training Platform</div>
               </div>
             </a>
